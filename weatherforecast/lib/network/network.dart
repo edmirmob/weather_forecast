@@ -10,10 +10,10 @@ class Network{
 
     var url = 'http://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=${Util.appId}';
 
-
      final response = await get(Uri.parse(Uri.encodeFull(url)));
-
+      
      if(response.statusCode==200){
+       print("Vrijeme je: ${response.body}");
        return WeatherForecastModel.fromJson(json.decode(response.body));
      }else{
        throw Exception('Error getting weathear forecast');
