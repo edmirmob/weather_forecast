@@ -19,7 +19,7 @@ class _WeatherForecastState extends State<WeatherForecast> {
    forecastObject = Network().getWeatherForecast(cityName: _cityName);
 
    forecastObject.then((value){
-    return print(value.list[0].weather[1].main);
+    return print(value.list[0].weather[0].main);
    });
     super.initState();
   }
@@ -27,18 +27,46 @@ class _WeatherForecastState extends State<WeatherForecast> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Forecast'),
-      ),
-      // body: Container(
-        
-      //   child: FutureBuilder(
-      //     future: forecastObject,
-      //     builder: (context, snapshot){
-      //     var data = snapshot.data;
-      //     return Text(data);
-      //   }),
-      // )
-    );
-  }
+     
+      body: ListView(
+          children: [
+            textFielView(),
+              Container(
+                
+                child:  FutureBuilder(
+                  future: forecastObject,
+                  builder: (context,AsyncSnapshot<WeatherForecastModel> snapshot){
+                     if(snapshot.hasData){
+                      return Text('All it\'s good');
+                     }else{
+                      return Container(
+                         child: Center(child: CircularProgressIndicator()),
+                       );
+                     }
+                }),
+              ),
+            
+            ],
+          )
+              );
+            }
+          
+           Widget textFielView() {
+              return Container(
+               child: TextField(
+                 decoration: InputDecoration(
+                   hintText: 'Enter City Name',
+                   prefixIcon: Icon(Icons.search),
+                   border: OutlineInputBorder(
+                     borderRadius: BorderRadius.circular(10),
+                     
+                   ),
+                   contentPadding: EdgeInsets.all(8)
+                 ),
+                 onSubmitted: (value){
+
+                 },
+               ),
+              );
+            }
 }
