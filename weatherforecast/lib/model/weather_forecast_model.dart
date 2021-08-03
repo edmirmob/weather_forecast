@@ -130,7 +130,7 @@ class Main {
 
   Main.fromJson(Map<String, dynamic> json) {
     temp = json['temp'].toDouble();
-    feelsLike = json['feels_like'];
+    feelsLike = json['feels_like'].toDouble();
     tempMin = json['temp_min'].toDouble();
     tempMax = json['temp_max'].toDouble();
     pressure = json['pressure'];
@@ -204,7 +204,7 @@ class Wind {
   Wind({this.speed, this.deg, this.gust});
 
   Wind.fromJson(Map<String, dynamic> json) {
-    speed = json['speed'];
+    speed = json['speed'].toDouble();
     deg = json['deg'];
     gust = json['gust'].toDouble();
   }
