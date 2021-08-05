@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weatherforecast/model/weather_forecast_model.dart';
 import 'package:weatherforecast/util/forecast_util.dart';
 
@@ -30,8 +31,9 @@ Widget midView(AsyncSnapshot<WeatherForecastModel> snapshot) {
             height: 10,
           ),
           Icon(
-            Icons.wb_sunny,
-            size: 195,
+            FontAwesomeIcons.cloud,
+            color: Colors.pink,
+            size: 198,
           ),
           Padding(
             padding:
@@ -62,9 +64,9 @@ Widget midView(AsyncSnapshot<WeatherForecastModel> snapshot) {
                     children: [
                       Text(
                         '${forecast.wind.speed.toStringAsFixed(1)} mi/h',
-                        style: TextStyle(fontSize: 20, color: Colors.brown),
                       ),
-                      Icon(Icons.arrow_forward)
+                      Icon(FontAwesomeIcons.wind,
+                          size: 20, color: Colors.brown),
                     ],
                   ),
                 ),
@@ -74,9 +76,9 @@ Widget midView(AsyncSnapshot<WeatherForecastModel> snapshot) {
                     children: [
                       Text(
                         '${forecast.main.humidity.toStringAsFixed(0)}%',
-                        style: TextStyle(fontSize: 20, color: Colors.brown),
                       ),
-                      Icon(Icons.hot_tub)
+                      Icon(FontAwesomeIcons.solidGrinBeamSweat,
+                          size: 20, color: Colors.brown),
                     ],
                   ),
                 ),
@@ -86,9 +88,9 @@ Widget midView(AsyncSnapshot<WeatherForecastModel> snapshot) {
                     children: [
                       Text(
                         '${forecast.main.tempMax.toStringAsFixed(1)}°C',
-                        style: TextStyle(fontSize: 20, color: Colors.brown),
                       ),
-                      Icon(Icons.wb_sunny)
+                      Icon(FontAwesomeIcons.temperatureHigh,
+                          size: 20, color: Colors.brown),
                     ],
                   ),
                 )
