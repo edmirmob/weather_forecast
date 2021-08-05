@@ -8,7 +8,8 @@ class Network{
 
   Future<WeatherForecastModel> getWeatherForecast({String cityName})async{
 
-    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=${Util.appId}';
+    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=${Util.appId}&units=metric&cnt=7';
+    
 
      final response = await get(Uri.parse(Uri.encodeFull(url)));
       

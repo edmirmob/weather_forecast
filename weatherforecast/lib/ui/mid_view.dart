@@ -18,7 +18,23 @@ Widget midView(AsyncSnapshot<WeatherForecastModel>snapshot){
                   fontWeight: FontWeight.bold,
                   color: Colors.black87
                 ),),
-                Text('${Util.getFormattedDate(formattedDate)}')
+                Text('${Util.getFormattedDate(formattedDate)}', style: TextStyle(fontSize: 15),),
+
+                SizedBox(height: 10,),
+
+                Icon(Icons.wb_sunny, size: 195,),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical:12.0, horizontal: 12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('${forecastList[0].main.temp.toStringAsFixed(1)}°C', style: TextStyle(fontSize: 34),),
+                      SizedBox(width: 5,),
+                      Text('${forecastList[0].weather[0].description.toUpperCase()}'),
+                    ],
+                  ),
+                )
       ],
     ),
           ),
