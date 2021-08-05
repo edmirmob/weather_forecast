@@ -16,7 +16,7 @@ class _WeatherForecastState extends State<WeatherForecast> {
 
   @override
   void initState() {
-    forecastObject = Network().getWeatherForecast(cityName: _cityName);
+    forecastObject = getWeather(cityName: _cityName);
 
     forecastObject.then((value) {
       return print(value.list[0].weather[0].main);
@@ -61,8 +61,15 @@ class _WeatherForecastState extends State<WeatherForecast> {
               borderRadius: BorderRadius.circular(10),
             ),
             contentPadding: EdgeInsets.all(8)),
-        onSubmitted: (value) {},
+        onSubmitted: (value) {
+          setState(() {
+            _cityName=value;
+            forecastObject = getWeather(cityName:_cityName);
+          });
+        },
       ),
     );
   }
+
+  Future<WeatherForecastModel> getWeather({String cityName}) => Network().getWeatherForecast(cityName: _cityName);
 }
