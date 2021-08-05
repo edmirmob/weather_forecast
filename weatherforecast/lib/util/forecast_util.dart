@@ -6,6 +6,7 @@ class Util{
 
   static String getFormattedDate(DateTime dateTime){
 
-    return DateFormat('EEE, MMM, d, y').format(dateTime);
+    return DateFormat('EEEE, MMM, d, y').format(dateTime);
   }
+
 }
