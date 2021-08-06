@@ -18,6 +18,7 @@ Widget bottomView(
         height: 170,
         padding: EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         child: ListView.separated(
+            scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(10),

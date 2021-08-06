@@ -9,4 +9,9 @@ class Util{
     return DateFormat('EEEE, MMM, d, y').format(dateTime);
   }
 
+   static String getDay(DateTime dateTime){
+
+    return DateFormat.EEEE().format(dateTime);
+  }
+
 }
