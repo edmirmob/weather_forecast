@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:weatherforecast/model/weather_forecast_model.dart';
 import 'package:weatherforecast/ui/forecast_card.dart';
 
-Widget bottomView(
-    AsyncSnapshot<WeatherForecastModel> snapshot, BuildContext context) {
-  var forecastList = snapshot.data.list;
+class BottomView extends StatelessWidget {
+  final AsyncSnapshot<WeatherForecastModel> snapshot;
+   BottomView({ this.snapshot }) : super();
 
-  return Column(
+  @override
+  Widget build(BuildContext context) {
+    return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       Text(
@@ -41,8 +43,10 @@ Widget bottomView(
             separatorBuilder: (context, index) => SizedBox(
                   width: 8,
                 ),
-            itemCount: forecastList.length),
+            itemCount: snapshot.data.list.length),
       )
     ],
   );
+  }
 }
+
