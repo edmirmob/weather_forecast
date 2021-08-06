@@ -23,9 +23,9 @@ Widget bottomView(
               return ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 2.7,
+                  width: MediaQuery.of(context).size.width / 2.3,
                   height: 160,
-                  child: forecastCard(snapshot, index),
+                  child: forecastCard(snapshot, index, context),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [

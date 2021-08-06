@@ -30,7 +30,10 @@ class _WeatherForecastState extends State<WeatherForecast> {
     return Scaffold(
         body: ListView(
       children: [
-        textFielView(),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 14),
+          child: textFielView(),
+        ),
         Container(
           child: FutureBuilder(
               future: forecastObject,

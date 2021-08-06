@@ -31,7 +31,10 @@ Widget midView(AsyncSnapshot<WeatherForecastModel> snapshot) {
           SizedBox(
             height: 10,
           ),
-          getWeatherIcon(weatherDescription: forecastList[0].weather[0].main, size: 198, color:Colors.pink.shade200),
+          getWeatherIcon(weatherDescription: forecastList[0].weather[0].main, size: 198, color:Colors.pink.shade200,),
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
@@ -39,7 +42,7 @@ Widget midView(AsyncSnapshot<WeatherForecastModel> snapshot) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '${forecast.main.temp.toStringAsFixed(1)}°C',
+                  '${forecast.main.temp.toStringAsFixed(0)}°C',
                   style: TextStyle(fontSize: 34),
                 ),
                 SizedBox(
